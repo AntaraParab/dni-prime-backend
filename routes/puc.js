@@ -24,4 +24,10 @@ router.post("/", async (req, res) => {
   res.status(201).json(cert);
 });
 
+router.put("/:id", async (req, res) => {
+  const cert = await PucCertificate.findByIdAndUpdate(req.params.id, req.body, { new: true });
+  res.json(cert);
+});
+
 module.exports = router;
+
